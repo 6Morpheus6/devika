@@ -68,7 +68,13 @@ class LLM:
             
         }
         if ollama.client:
-            self.models["OLLAMA"] = [(model["name"], model["name"]) for model in ollama.models]
+            try:
+                # Create tuples using the model name attribute
+                self.models["OLLAMA"] = [(model.model, model.model) for model in ollama.models]
+            except Exception as e:
+                print(f"Error loading Ollama models: {e}")
+                # Initialize with empty list if there's an error
+                self.models["OLLAMA"] = []
 
     def list_models(self) -> dict:
         return self.models
