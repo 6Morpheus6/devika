@@ -26,7 +26,7 @@ mistralai
 Flask-SocketIO
 eventlet
 groq
-duckduckgo-search
+duckduckgo_search==6.3.5
 orjson
 gevent
 gevent-websocket
